@@ -1,37 +1,19 @@
 ## Welcome to KITP Machine19
 
-You can use the [editor on GitHub](https://github.com/machine19/machine19.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Welcome to the wiki page for the KITP program [Machine Learning for Quantum Many-Body Physics](https://www.kitp.ucsb.edu/activities/machine19), coordinated by Roger Melko, Amnon Shashua, Miles Stoudenmire, and Matthias Troyer.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+![Image](src)
 
-### Markdown
+This space is for you, the program participants.  Contact [Roger](mailto:rgmelko@gmail.com) or [Miles](mailto:mstoudenmire@flatironinstitute.org) your GitHub userid to get access to make changes to the page.
+You can use the [editor on GitHub](https://github.com/machine19/machine19.github.io/edit/master/README.md) to maintain and preview the content for this website in Markdown files.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Weekly Schedule Format
 
-```markdown
-Syntax highlighted code block
+Every week, we will have one organizational meeting, three scheduled talks, and one imprompto (and un-recorded) Friday discussion.  All events take place in the KITP auditorium.
 
-# Header 1
-## Header 2
-### Header 3
+- Monday, 1:30pm: Organizational meet & greet
+- Tuesday, 1:30pm: Seminar
+- Wednesday, 10:00am: Chalkboard Tutorial (introductory level machine learning for physicists)
+- Thursday, 1:30pm: Seminar
+- Friday, 3:30pm: **Machine19 Unplugged**, un-recorded discussion.  Topics to be determined by you, the participants, each week.
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/machine19/machine19.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
