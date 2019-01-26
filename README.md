@@ -1,4 +1,4 @@
- <img src="machine.png" align="right"  alt="drawing" width="250"/>  
+ <img src="machine.png" align="right"  alt="drawing" width="200"/>  
  
 ## Welcome to KITP Machine19
 
