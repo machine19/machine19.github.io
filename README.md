@@ -1,8 +1,7 @@
-## Welcome to KITP Machine19
+ <img src="machine.png" align="right"  alt="drawing" width="250"/> 
+ ## Welcome to KITP Machine19
 
 Welcome to the wiki page for the KITP program [Machine Learning for Quantum Many-Body Physics](https://www.kitp.ucsb.edu/activities/machine19), coordinated by Roger Melko, Amnon Shashua, Miles Stoudenmire, and Matthias Troyer. 
-
-![Image](src)
 
 This space is for you, the program participants.  Contact [Roger](mailto:rgmelko@gmail.com) or [Miles](mailto:mstoudenmire@flatironinstitute.org) your GitHub userid to get access to make changes to the page.
 You can use the [editor on GitHub](https://github.com/machine19/machine19.github.io/edit/master/README.md) to maintain and preview the content for this website in Markdown files.
@@ -19,8 +18,6 @@ Every week, we will have one organizational meeting, three scheduled talks, and 
 
 ### Useful links
 
-[Attendees](http://online.kitp.ucsb.edu/online/machine19/directory.html)
-
-[Current week schedule](https://www.kitp.ucsb.edu/talks-schedule#week)
-
-[Recorded talks](http://online.kitp.ucsb.edu/online/machine19/)
+- [Attendees](http://online.kitp.ucsb.edu/online/machine19/directory.html)
+- [Current week schedule](https://www.kitp.ucsb.edu/talks-schedule#week)
+- [Recorded talks](http://online.kitp.ucsb.edu/online/machine19/)
