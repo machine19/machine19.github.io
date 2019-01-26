@@ -20,5 +20,7 @@ Every week, we will have one organizational meeting, three scheduled talks, and 
 ### Useful links
 
 [Attendees](http://online.kitp.ucsb.edu/online/machine19/directory.html)
+
 [Current week schedule](https://www.kitp.ucsb.edu/talks-schedule#week)
+
 [Recorded talks](http://online.kitp.ucsb.edu/online/machine19/)
