@@ -1,5 +1,6 @@
  <img src="machine.png" align="right"  alt="drawing" width="250"/>  
-### Welcome to KITP Machine19
+ 
+## Welcome to KITP Machine19
 
 Welcome to the wiki page for the KITP program [Machine Learning for Quantum Many-Body Physics](https://www.kitp.ucsb.edu/activities/machine19), coordinated by Roger Melko, Amnon Shashua, Miles Stoudenmire, and Matthias Troyer. 
 
