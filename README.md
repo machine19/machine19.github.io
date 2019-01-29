@@ -7,6 +7,8 @@ Welcome to the wiki page for the KITP program [Machine Learning for Quantum Many
 This space is for you, the program participants.  Contact [Roger](mailto:rgmelko@gmail.com) or [Miles](mailto:mstoudenmire@flatironinstitute.org) with your GitHub userid to get access to make changes to the page.
 You can use the [editor on GitHub](https://github.com/machine19/machine19.github.io/edit/master/README.md) to maintain and preview the content for this website in Markdown files.
 
+A [slack](https://slack.com) workspace has been created at machine19.slack.com.  If you haven't recieved your invitation contact Roger.
+
 ----------------
 
 ### Weekly Schedule Format
