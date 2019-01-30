@@ -1,9 +1,10 @@
-```html
 ---
+​---
 layout: page
-title: GenModels
+title: About
+permalink: /about/
+​---
 ---
-```
 
 ## What physicists want to know about advances in generative modeling
 
