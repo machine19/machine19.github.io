@@ -25,6 +25,12 @@ Following the Friday discussion there will be a social event at the Munger resid
 
 ----------------
 
+### Wednesday BlogSpot
+- LINK TO 
+
+----------------
+
+
 ### Useful links
 
 - [Attendees](http://online.kitp.ucsb.edu/online/machine19/directory.html)
