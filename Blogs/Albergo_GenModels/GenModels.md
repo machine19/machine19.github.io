@@ -1,9 +1,7 @@
 ---
-​---
 layout: page
 title: About
 permalink: /about/
-​---
 ---
 
 ## What physicists want to know about advances in generative modeling
