@@ -26,7 +26,7 @@ Following the Friday discussion there will be a social event at the Munger resid
 ----------------
 
 ### Wednesday BlogSpot
-- LINK TO 
+- Michael Albergo: [Overview of Recent Generative Models](machine19.github.io/Blogs/Albergo_GenModels/GenModels.md)
 
 ----------------
 
