@@ -5,7 +5,7 @@ title: GenModels
 
 ## What physicists want to know about advances in generative modeling
 
-###### *Michael Abergo*
+###### *Michael Albergo*
 ---------
 
 
