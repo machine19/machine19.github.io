@@ -70,14 +70,14 @@ You want to be able to check on the fidelity of your setup to verify that you ha
 
 An RNN is made of a recurrent unit that takes in a hidden state $h_t$ (used for updating computation at different sequential states) and an input vector $x_t$, which in our case is one of these one-hot vectors of measurement outcomes. The weight matrix $W$ is involved with some computation with $x_t$ and $h_t$ (which will vary depending on what type of RNN unit you use, like a GRU or LSTM). 
 
-  <center><img src="/Users/michaelalbergo/Boostnote/KITP/RNNUnit.jpg"  style="width: 70%; height: 70%"...></center>
+  <center><img src="RNNUnit.jpg"  style="width: 70%; height: 70%"...></center>
 
 
-At the first step $t = 0​$, we feed in some fixed initial $h_0​$, $x_0​$ of arbitrary value. The output of the RNN at the first time sequence is a probability distribution over measurement outcomes for the first qubit and an update to the hidden state $h_t​$. That is, the output of the RNN on the first go will give us $\mathbf{p_t}= \begin{bmatrix} p_t(a_0) \\ p_t(a_1) \\p_t(a_2) \\p_t(a_3) \\ \end{bmatrix}​$ and our new $h_t​$. During training, we then take the real first qubit measurement outcome from our training example and feed that in to the RNN unit as $x_t​$ with $h_t​$ to get our estimate $\mathbf{p_{t+1}}​$. We do this for each sequential qubit in our model. We compute the loss by calculating the cross entropy between each $\mathbf{p_t}​$ and the sample from our training data $x_{t}​$ for all $t​$ in our qubit chain and sum. 
+At the first step $t = 0$, we feed in some fixed initial $h_0$, $x_0$ of arbitrary value. The output of the RNN at the first time sequence is a probability distribution over measurement outcomes for the first qubit and an update to the hidden state $h_t$. That is, the output of the RNN on the first go will give us $\mathbf{p_t}= \begin{bmatrix} p_t(a_0) \\ p_t(a_1) \\p_t(a_2) \\p_t(a_3) \\ \end{bmatrix}$ and our new $h_t$. During training, we then take the real first qubit measurement outcome from our training example and feed that in to the RNN unit as $x_t$ with $h_t$ to get our estimate $\mathbf{p_{t+1}}$. We do this for each sequential qubit in our model. We compute the loss by calculating the cross entropy between each $\mathbf{p_t}$ and the sample from our training data $x_{t}$ for all $t​$ in our qubit chain and sum. 
 
 When we want to sample the model, we alter this process a bit. After outputting a set of probabilities for the measurement outcome of the first qubit, we draw a sample outcome from this set of probabilities and feed that into the next step of the RNN rather than the training sample outcome. That is, say we compute the probabilities for measurement outcomes of the first qubit and get $\mathbf{p_1}= \begin{bmatrix} .78 \\ .04 \\ .1 \\ .08 \end{bmatrix}​$. We then sample from this and get $x_1= \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}​$, and this is what we feed as input into the RNN for the next pass estimating $\mathbf{p_2}​$. Doing this for all qubits, you get a probaility distribution for each one that is dependent on the outcomes of those that preceded it. You can then start generating the measurements on 50 qubit lattices and using that to calculate expectations of observables for your density matrix $\rho​$:
 
-![qubits](/Users/michaelalbergo/Boostnote/KITP/GeneratedQubitOutcomes.png "Outcomes")
+![qubits](GeneratedQubitOutcomes.png "Outcomes")
 
 You can compute the Classical Fidelity $F_c​$  and the KL-divergence $\mathrm{KL}​$ between  $P_{RNN}​$ and $P_{TFIM}​$ (ground truth):
 
@@ -143,7 +143,7 @@ If you stack at least two of these coupling layers together, you can transform a
 
 With this flexibility of inversion, we can perform sampling and exact inference. If I draw some $\mathbf{z}$ from $p_z$ and I know $p_z$ is an analytically known distribution like a Gaussian $\mathcal{N}(0,\mathbb{I} )$, I can pass it through $f^{-1}$ to get a sample $\mathbf{x}$ from $p_x$. If I want to perform inference on a sample $\mathbf{x}$, I can pass it through $f$ to understand its likelihood in the known latent density:
 
-  <center><img src="/Users/michaelalbergo/Documents/Academia/Perimeter/Talks/KITP/ImageFlow1.png" ...></center>
+  <center><img src="ImageFlow1.png" ...></center>
 
 In practical optimization contexts, we maximize the log likelihood of the data rather so that the multiplication in Equation $\ref{flowlikelihood}$ can be split into additive terms whose optimization is more manageable to pursue: 
 $$
@@ -201,8 +201,9 @@ $$
 $$
 Because it is differentiable, it can be optimized to maximize the lower bound of the likelihood. Using this variational principle, this has been dubbed a variational autoencoder (VAE). Note the $\beta$ value included the bound. The addenedum is known as the $\beta$-VAE and helps control the conditional independence of the latent space (and thus helps with the adoption of conditional information) and improves the efficiency of the latent representation. It comes with a tradeoff though of poorer image reconstruction, as the first term is made comparatively less important in the loss. 
 
- <center><img src="/Users/michaelalbergo/Documents/Academia/Perimeter/Talks/KITP/AEcrop.pdf" style="width: 38%; height: 38%" ...>
-<img src="/Users/michaelalbergo/Documents/Academia/Perimeter/Talks/KITP/VAEnewCropped2.pdf" style="width: 55%; height: 55%"...></center>
+ <center><img src="AEcrop.png" style="width: 38%; height: 38%" ...>
+<img src="VAEnewCropped.png" style="width: 55%; height: 55%"...></center>
+
 
 Graphs of prototypical autoencoders and VAEs models are shown in the figure above to highlight their differences. An important distinction beyond the different objective function is in the encoding bottleneck. Instead of encoding down to some single latent representation, a VAE encodes to two bottlenecks -- a mean vector and a variance vector. The latent vector is then created by sampling the mean vector, the variance vector, and combining these samples with a noise term $\epsilon​$. This is to permit the VAE to generate new samples while still allowing the graph to be differentiable for backpropagation optimization and is known as the reparameterization trick. Autoencoders and VAEs are only cousins because of their encoding and decoding paradigm; otherwise, they are conceptually (Bayesian vs deterministic) and functionally (reductive vs generative) quite different.
 
@@ -221,11 +222,12 @@ where $d$ is the dimensions of the latent space, and, in the last line, we switc
 
 So what does the training process look like then? It's much like a balance optimization between being able to reconstruct images and ensuring that $q_{\phi }(\mathbf{z} | \mathbf{x})​$ looks Gaussian for all $x​$. We can imagine that below, where we can envision 2D Gaussians for each $\mathbf{x}​$ getting near or close to the prior Gaussian $\mathcal{N}(\mathbf{0}, \mathbb{I})​$:
 
-<center><img src="/Users/michaelalbergo/Documents/Academia/Perimeter/Talks/KITP/KLVAEcropped.png" style="width: 45%; height: 45%" ...>
+<center><img src="KLVAEcropped.png" style="width: 45%; height: 45%" ...>
 <figcaption>Mapping from 2D latent space. Cool visualization thanks to Wasserstein Autoencoders paper by Tolstikhin et al 2018. </figcaption>
 </center>
 
-As the KL term is more strongly enforced, data will be better spread around the Gaussian prior, but the generated image quality will be worse. If the KL term is not enforced as strongly (as might be seen above), posterior Gaussians can overlap, and multiple inputs might map to the same generated $\mathbf{x}'​$. This can be improved with the Wasserstein Autoencoder by [Tolstikhin et al](https://arxiv.org/pdf/1711.01558.pdf) in which $q(\mathbf{z}) = \int q(\mathbf{z} | \mathbf{x} ) dp(\mathbf{x})​$ is forced to match $p(\mathbf{z})​$ rather than each $q_{\phi}(\mathbf{z}|\mathbf{x})​$ on their own. __Note__: there are many many advances and perspectives on these models, and more keep coming. I just reference the Wasserstein Autoencoder case because it elucidates some of the behavior of the latent space visually well. 
+
+As the KL term is more strongly enforced, data will be better spread around the Gaussian prior, but the generated image quality will be worse. If the KL term is not enforced as strongly (as might be seen above), posterior Gaussians can overlap, and multiple inputs might map to the same generated $\mathbf{x}'$. This can be improved with the Wasserstein Autoencoder by [Tolstikhin et al](https://arxiv.org/pdf/1711.01558.pdf) in which $q(\mathbf{z}) = \int q(\mathbf{z} | \mathbf{x} ) dp(\mathbf{x})$ is forced to match $p(\mathbf{z})$ rather than each $q_{\phi}(\mathbf{z}|\mathbf{x})$ on their own. __Note__: there are many many advances and perspectives on these models, and more keep coming. I just reference the Wasserstein Autoencoder case because it elucidates some of the behavior of the latent space visually well. 
 
 For example of some other advances in the understanding, one can take a look at ways of disentangling the latent space of these models so that each latent dimension has some more interpretable understanding of its representation. This can be done by enforcing independence between the latent dimensions, which becomes apparent if you break down the KL term into its newly discovered 3 subparts, one of which is the [Total Correlation](https://arxiv.org/pdf/1802.04942.pdf). This can be done [adversarially](https://arxiv.org/pdf/1802.05983.pdf), with d-Hilbert-Schmidt [Independence Criteria](https://arxiv.org/pdf/1805.08672.pdf), or with MMD and[ variations of adversarial](http://malbergo.me/FinalPresentationMicrosoft.pptx) training. One can also tailor their latent space to be a [sampling on a manifold(https://arxiv.org/pdf/1807.04689.pdf) that corresponds to the symmetries/transformations that govern the true data. 
 
@@ -261,7 +263,8 @@ $$
 $$
 The two networks are thus jointly optimized in tandem with one another, and can be visualized like below:
 
-<center><img src="/Users/michaelalbergo/Documents/Academia/Perimeter/Talks/KITP/GAN.png" style="width: 60%; height: 60%" ...>
+<center><img src="GAN.png" style="width: 60%; height: 60%" ...>
+
 
 Let's break down what this optimization process looks like a bit more and see what happens when we have an optimal discriminator $D^*$. I will describe the above cost function $V$ with the full distributions so we can use integrals rather than expectation:
 $$
@@ -310,8 +313,9 @@ $$
 
 While this approach is very powerful because of the flexible, parameterized replacement for the likelihood that allows for the generator to adeptly model multi-modal output, there are a number of limitations to the original GAN framework. These limitations could arise from a number of theoretical problems as detailed in a paper by [Roth et al 2017](https://arxiv.org/abs/1705.09367) --  overfitting, density misspecification or dimensional misspecification -- and are often driven by the generator or discriminator outperforming the other. Two symptoms appear because of this problem one we'll call mode collapse and/or vanishing gradients as well as non-convergence, where the parameters of the model continue to oscillate back and forth. We can visualize why the model will not update significantly if the generated and empirical distribution produced are too far apart:
 
-<center><img src="/Users/michaelalbergo/Documents/Academia/Perimeter/Talks/KITP/D_JScomparison.png"  ...>
+<center><img src="D_JScomparison.png"  ...>
 <figcaption> Showing how JS Divergence saturates when distributions are far apart, visualizaiton taken from Jonathan Hui on Medium</figcaption> </center>
+
 
 As you can see in the graph, when the distributions are far apart, the JS Divergence flattens, in which case only small gradients would be backpropagated.
 
@@ -348,15 +352,12 @@ There have been many proposed solutions and further analysis of GAN dynamics, bu
 
 We can use these techniques to sample from very complex distributions, but for now here's a tutorial on sampling from some simple analytic distributions:
 
-<center><img src="/Users/michaelalbergo/Documents/Academia/Perimeter/Talks/KITP/GaussianGenDP_toUse.png" style="width: 44%; height: 44%" <\img>
-<img src="/Users/michaelalbergo/Documents/Academia/Perimeter/Talks/KITP/BetaGen.png" style="width: 44%; height: 44%"
+<center><img src="GaussianGenDP_toUse.png" style="width: 44%; height: 44%" <\img>
+<img src="BetaGen.png" style="width: 44%; height: 44%"
 </center>
 
+
 The tutorial can be found [here](https://github.com/malbergo/GenerativeModelTutorials/blob/master/VanillaGan_Gaussian.ipynb). 
-
-
-
-
 
 ###### _Advantages_:
 
