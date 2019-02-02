@@ -14,7 +14,7 @@ We hope to provide you all at KITP with an overview of one class of machine lear
 
 ### What are Generative Models?
 
-One of the major goals of machine learning is to understand the essential parameters explaining why a dataset is the way it is. Most commonly, this is seen as a problem of building a model that can learn a probability distribution that *discriminates* some data from other data. In the case of functional mapping in which a $\mathbf{y}$ is associated to an input $\mathbf{x}$, this means learning a conditional probability $p(\mathbf{y}|\mathbf{x})$, where the likelihood of the output value is predicted given some input condition. In applicable cases like classification or regression, the goal is to discriminatively ascertain likely $\mathbf{y}$ values for a given $\mathbf{x}$. Other times, when a greater understanding of a functionally mapped space is desired beyond the distribution of some output conditioned on some input, the goal is to learn a joint probability $p(\mathbf{x},\mathbf{y})$ -- to gain insight into the distribution that is responsible for *generating* the data.
+One of the major goals of machine learning is to understand the essential parameters explaining why a dataset is the way it is. Most commonly, this is seen as a problem of building a model that can learn a probability distribution that *discriminates* some data from other data. In the case of functional mapping in which a $\mathbf{y}​$ is associated to an input $\mathbf{x}​$, this means learning a conditional probability $p(\mathbf{y}|\mathbf{x})​$, where the likelihood of the output value is predicted given some input condition. In applicable cases like classification or regression, the goal is to discriminatively ascertain likely $\mathbf{y}​$ values for a given $\mathbf{x}​$. Other times, when a greater understanding of a functionally mapped space is desired beyond the distribution of some output conditioned on some input, the goal is to learn a joint probability $p(\mathbf{x},\mathbf{y})​$ -- to gain insight into the distribution that is responsible for *generating* the data.
 
 Even more generally, there are many instances when there is no relational mapping or "labeling" behind the data distribution we are curious about.  That is, we are only given some $(\mathbf{x}_{1}, \dots, \mathbf{x}_n)$ that are distributed according some probability distribution $p(\mathbf{x})$. In such case, the objective is to model the true distribution $p(\mathbf{x})$ with some parameterized approximation $p_{\theta}(\mathbf{x})$ so that we can generalize on i) estimating the likelihood of some $\mathbf{x}$ in the domain and on ii) making novel samples that fall under the distribution. Approaches to this problem are detailed below.
 
@@ -114,16 +114,16 @@ p(\mathbf{x}) = p_z(f(\mathbf{x}))\bigg\lvert \det \frac{\partial f(x)}{\partial
 $$
 Note: because we assume $\mathbf{z}$ is multi-dimensional, we label $\frac{\partial f(x)}{\partial x^T}$ as the Jacobian of the $f$. This seems simple enough, so there must be a catch. And that catch is in coming up with a way to represent a highly flexible and complicated function$f$ that one can easily invert. A number of papers by Dinh et al. ([NICE](https://arxiv.org/pdf/1410.8516.pdf) and [RealNVP](https://arxiv.org/pdf/1605.08803.pdf)) as well as a recent paper by Kingma et al. ([Glow](https://arxiv.org/abs/1807.03039)) build up and optimize some clever methods to make this inversion possible, the basics of which we'll describe here. 
 
-In general, it is difficult to learn invertible functions. Additionally, the above equation is computational inefficient because calculating the Jacobian of a large matrix is intractable. This can circumvented if $f$ is constructed with what we'll call __additive or affine coupling layers__. NICE uses additive coupling layers, while RealNVP uses affine coupling layers. These layers are ways of splitting the invertible function into subparts so that the Jacobian calculation is tractable.
+In general, it is difficult to learn invertible functions. Additionally, the above equation is computational inefficient because calculating the Jacobian of a large matrix is intractable. This can circumvented if $f$ is constructed with what we'll call __additive or affine coupling layers__. NICE uses additive coupling layers, while RealNVP uses affine coupling layers. These layers are ways of splitting the invertible function into subparts so that the Jacobian calculation is tractable. I copy them from their respective papers: 
 
 - Additive Coupling:
   $$
-  \mathbf{y} =    \left\{ \begin{array}{ll} y_{1:d} = x_{1:d} \\ y_{d+1:D} = x_{d+1:D} + b(x_{1:d})   \end{array} \right. \\ \Downarrow \\ \mathbf{y}^{-1} =  \{ \begin{array}{ll} x_{1:d} = y_{1:d} \\ x_{d+1:D} = y_{d+1:D} - b(x_{1:d})   \end{array}
+  \mathbf{y} =    \left\{ \begin{array}{ll} y_{1:d} = x_{1:d} \\ y_{d+1:D} = x_{d+1:D} + b(x_{1:d})   \end{array} \right. \\ \big\Downarrow \\ \mathbf{y}^{-1} =  \{ \begin{array}{ll} x_{1:d} = y_{1:d} \\ x_{d+1:D} = y_{d+1:D} - b(x_{1:d})   \end{array}
   $$
 
 - Affine Coupling:
   $$
-  \mathbf{y} =    \left\{ \begin{array}{ll} y_{1:d} = x_{1:d} \\ y_{d+1:D} = x_{d+1:D} \odot \exp{(s(x_{1:d})) + t(x_{1:d})}  \end{array} \right. \\ \Downarrow \\ \mathbf{y}^{-1} =  \{ \begin{array}{ll} x_{1:d} = y_{1:d} \\ x_{d+1:D} =(y_{d+1:D} - t(y_{1:d})) \odot \exp{(-s(y_{1:d}))}   \end{array}
+  \mathbf{y} =    \left\{ \begin{array}{ll} y_{1:d} = x_{1:d} \\ y_{d+1:D} = x_{d+1:D} \odot \exp{(s(x_{1:d})) + t(x_{1:d})}  \end{array} \right. \\ \big\Downarrow \\ \mathbf{y}^{-1} =  \{ \begin{array}{ll} x_{1:d} = y_{1:d} \\ x_{d+1:D} =(y_{d+1:D} - t(y_{1:d})) \odot \exp{(-s(y_{1:d}))}   \end{array}
   $$
 
 - Coupling + 1x1 Convolutions:
@@ -136,11 +136,11 @@ The coupling allows for us to compute a Jacobian defined by a triangular matrix,
 $$
 J = \frac{\partial \mathbf{y}}{\partial\mathbf{x}} = \begin{bmatrix} 1 & \dots & \dots & 0 \\ \frac{\partial y_2}{\partial x_1} & 1 & \dots & 0 \\ \vdots & \vdots & \ddots  & 0  \\ \frac{\partial y_{D}}{\partial x_{1}} & \frac{\partial y_{D}}{\partial x_{2}} & \dots & \frac{\partial y_{D}}{\partial x_{D}}  \end{bmatrix}  = \begin{bmatrix} \mathbf{I}_d & \mathbf{0}_d \\ \frac{\partial y_{d+1:D}}{\partial x_{1:d}}  & \frac{\partial y_{d+1:D}}{\partial x_{d+1:D}} \end{bmatrix}
 $$
-where $I_d$ is the identity matrix of dimension $d$. We write it like such to show the familiar form of a 2x2 matrix. This is really convenient! We need to calculate the determinant of this matrix to do our transformations and inverse transformations between probability density functions. If you recall that for a 2x2 matrix $M = \begin{bmatrix} a & b \\ c & d \end{bmatrix}$ , $\det{M}  = \frac{1}{ad - bc}$, we can see that the determinant of our Jacobian is just the determinant of the smaller sub matrix defined by $\frac{\partial y_{d+1:D}}{\partial x_{d+1:D}}$. For as complex a transformation as the affine coupling, this only amounts to being able to compute: 
+where $I_d​$ is the identity matrix of dimension $d​$. We write it like such to show the familiar form of a 2x2 matrix. This is really convenient! We need to calculate the determinant of this matrix to do our transformations and inverse transformations between probability density functions. If you recall that for a 2x2 matrix $M = \begin{bmatrix} a & b \\ c & d \end{bmatrix}​$ , $\det{M}  = \frac{1}{ad - bc}​$, we can see that the determinant of our Jacobian is just the determinant of the smaller sub matrix defined by $\frac{\partial y_{d+1:D}}{\partial x_{d+1:D}}​$. For as complex a transformation as the affine coupling, this only amounts to being able to compute: 
 $$
-\det{J} = \det{\begin{bmatrix} \mathbf{I}_d & \mathbf{0} \\ \frac{\partial y_{d+1:D}}{\partial x_{1:d}}  & \mathrm{diag}(\exp{(s(x_{1:d})))}\end{bmatrix}} = \exp(\sum_{k=1}^{D-d} s(x_{1:d})_k)
+\det{J} = \det{\begin{bmatrix} \mathbf{I}_d & \mathbf{0} \\ \frac{\partial y_{d+1:D}}{\partial x_{1:d}}  & \mathrm{diag}(\exp{(s(x_{1:d})))}\end{bmatrix}} = \exp(\sum_{k} s(x_{1:d})_k)
 $$
-If you stack at least two of these coupling layers together, you can transform all of your data. Moreover, one can see that computing neither the Jacobians, nor the inverses, require explicit sub-computations of the scaling in NICE (function $m$) or the scaling and transformation in RealNVP (functions $s$ and $t$). As such, these functions can be complicated and that won't impact the difficulty in calculating the inverse or the Jacobian. 
+If you stack at least two of these coupling layers together, you can transform all of your data. Moreover, one can see that computing neither the Jacobians, nor the inverses, require explicit sub-computations of the scaling in NICE (function $m​$) or the scaling and transformation in RealNVP (functions $s​$ and $t​$). As such, these functions can be complicated and that won't impact the difficulty in calculating the inverse or the Jacobian. 
 
 With this flexibility of inversion, we can perform sampling and exact inference. If I draw some $\mathbf{z}$ from $p_z$ and I know $p_z$ is an analytically known distribution like a Gaussian $\mathcal{N}(0,\mathbb{I} )$, I can pass it through $f^{-1}$ to get a sample $\mathbf{x}$ from $p_x$. If I want to perform inference on a sample $\mathbf{x}$, I can pass it through $f$ to understand its likelihood in the known latent density:
 
@@ -165,7 +165,7 @@ $$
 
 **Note**: Flow-based techniques can be combined with other approaches! For example, normalizing flows were introduced to VAEs in 2015  with the paper BLANNNKKKK by BLANKKKKK, and autoregressive models can be hybridized with flow techniques, as per Inverse Autoregressive Flows and Masked Autoregressive Flows. 
 
-We hope to include a tutorial in the coming days, which will be linked to here. 
+__Update__: A tutorial for learning a toy dataset is now [available: here.](https://github.com/malbergo/GenerativeModelTutorials/blob/master/ToyFlowNlayers.ipynb)
 
 ### 2. Explicit and Approximate Likelihood Models
 
@@ -363,6 +363,7 @@ The tutorial can be found [here](https://github.com/malbergo/GenerativeModelTuto
 ###### _Disadvantages_: 
 
 - no exact inference 
+- unstable training, though as mentioned above improvements are continuously being made on this front
 
 
 
