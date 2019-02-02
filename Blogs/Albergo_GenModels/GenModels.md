@@ -165,7 +165,7 @@ $$
 
 **Note**: Flow-based techniques can be combined with other approaches! For example, normalizing flows were introduced to VAEs in 2015  with the paper BLANNNKKKK by BLANKKKKK, and autoregressive models can be hybridized with flow techniques, as per Inverse Autoregressive Flows and Masked Autoregressive Flows. 
 
-__Update__: A tutorial for learning a toy dataset can be [downloaded here.](https://github.com/malbergo/GenerativeModelTutorials/blob/master/ToyFlowNlayers.ipynb) If you would like to run it on Google Colab in the cloud, all of it can be [run here](https://colab.research.google.com/drive/1JQQx6Csg_iVIfDLwwIOkADfq3qU6u7jK#scrollTo=z8p9Fy3osiak) without any annoying setup.
+__Update__: A tutorial for learning a toy dataset can be [downloaded here.](https://github.com/malbergo/GenerativeModelTutorials/blob/master/ToyFlowNlayers.ipynb) If you would like to run it on Google Colab in the cloud, all of it can be [run here](https://colab.research.google.com/drive/1JQQx6Csg_iVIfDLwwIOkADfq3qU6u7jK) without any annoying setup. Just enter "playground mode" to execute the code.
 
 ### 2. Explicit and Approximate Likelihood Models
 
