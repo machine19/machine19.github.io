@@ -112,7 +112,7 @@ $$
 \label{flowlikelihood}
 p(\mathbf{x}) = p_z(f(\mathbf{x}))\bigg\lvert \det \frac{\partial f(x)}{\partial x^T}\bigg \lvert
 $$
-Note: because we assume $\mathbf{z}$ is multi-dimensional, we label $\frac{\partial f(x)}{\partial x^T}$ as the Jacobian of the $f$. This seems simple enough, so there must be a catch. And that catch is in coming up with a way to represent a highly flexible and complicated function$f$ that one can easily invert. A number of papers by Dinh et al. ([NICE](https://arxiv.org/pdf/1410.8516.pdf) and [RealNVP](https://arxiv.org/pdf/1605.08803.pdf)) as well as a recent paper by Kingma et al. ([Glow](https://arxiv.org/abs/1807.03039)) build up and optimize some clever methods to make this inversion possible, the basics of which we'll describe here. 
+Note: because we assume $\mathbf{z}​$ is multi-dimensional, we label $\frac{\partial f(x)}{\partial x^T}​$ as the Jacobian of the $f​$. This seems simple enough, so there must be a catch. And that catch is in coming up with a way to represent a highly flexible and complicated function$f​$ that one can easily invert. A number of papers by Dinh et al. ([NICE](https://arxiv.org/pdf/1410.8516.pdf) and [RealNVP](https://arxiv.org/pdf/1605.08803.pdf)) as well as a recent paper by Kingma et al. ([Glow](https://arxiv.org/abs/1807.03039)) build up and optimize some clever methods to make this inversion possible, the basics of which we'll describe here. 
 
 In general, it is difficult to learn invertible functions. Additionally, the above equation is computational inefficient because calculating the Jacobian of a large matrix is intractable. This can circumvented if $f$ is constructed with what we'll call __additive or affine coupling layers__. NICE uses additive coupling layers, while RealNVP uses affine coupling layers. These layers are ways of splitting the invertible function into subparts so that the Jacobian calculation is tractable. I copy them from their respective papers: 
 
@@ -165,7 +165,7 @@ $$
 
 **Note**: Flow-based techniques can be combined with other approaches! For example, normalizing flows were introduced to VAEs in 2015  with the paper BLANNNKKKK by BLANKKKKK, and autoregressive models can be hybridized with flow techniques, as per Inverse Autoregressive Flows and Masked Autoregressive Flows. 
 
-__Update__: A tutorial for learning a toy dataset is now [available: here.](https://github.com/malbergo/GenerativeModelTutorials/blob/master/ToyFlowNlayers.ipynb)
+__Update__: A tutorial for learning a toy dataset can be [downloaded here.](https://github.com/malbergo/GenerativeModelTutorials/blob/master/ToyFlowNlayers.ipynb) If you would like to run it on Google Colab in the cloud, all of it can be [run here](https://colab.research.google.com/drive/1JQQx6Csg_iVIfDLwwIOkADfq3qU6u7jK#scrollTo=z8p9Fy3osiak) without any annoying setup.
 
 ### 2. Explicit and Approximate Likelihood Models
 
