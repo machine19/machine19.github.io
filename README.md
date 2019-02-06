@@ -36,3 +36,10 @@ Following the Friday discussion there will be a social event at the Munger resid
 - [Attendees](http://online.kitp.ucsb.edu/online/machine19/directory.html)
 - [Current week schedule](https://www.kitp.ucsb.edu/talks-schedule#week)
 - [Recorded talks](http://online.kitp.ucsb.edu/online/machine19/)
+
+----------------
+
+### Upcoming Schedule and Events
+
+- Thu Feb 7: Ying-Jer Kao, "Generation of topologically constrained states through deep reinforcement learning"
+
