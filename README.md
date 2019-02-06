@@ -41,18 +41,19 @@ Following the Friday discussion there will be a social event at the Munger resid
 
 ### Upcoming Events
 
-<b>Week 2</b>
+**Week 2**
 
 - Thu Feb 7 (1:30pm) Seminar: Ying-Jer Kao, "Generation of topologically constrained states through deep reinforcement learning"
 - Fri Feb 8 (3:30pm) Discussion: TBA
 
-<b>Week 3</b>
+**Week 3**
+
 (*Conference: At the Crossroads of Physics and Machine Learning*)
 
-<b>Week 2</b>
+**Week 4**
 
 - Tue Feb 19 (1:30pm) Seminar: Isaac Tamblyn
 - Wed Feb 20 (10:00am) Special Seminar: Masoud Mohseni
 - Thu Feb 21 (1:30pm) Seminar: Federico Becca
+- Fri Feb 22 (3:30pm) Discussion: TBA
 
-- Fri Feb 8 (3:30pm): Discussion TBA
