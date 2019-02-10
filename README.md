@@ -42,8 +42,6 @@ Following the Friday discussion there will be a social event at the Munger resid
 
 ### Upcoming Events
 
-+ **Week 2**
-  - Fri Feb 8 (3:30pm) Discussion: *TBA*
 + **Week 3** <br/>
   - (*Conference: At the Crossroads of Physics and Machine Learning*)
 + **Week 4**
