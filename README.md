@@ -49,4 +49,6 @@ Following the Friday discussion there will be a social event at the Munger resid
   - Wed Feb 20 (10:00am) Special Seminar: *Masoud Mohseni*
   - Thu Feb 21 (1:30pm) Tutorial: *Estelle Inack*
   - Fri Feb 22 (3:30pm) Discussion: *TBA*
-
++ **Week 5**
++ **Week 6**
+  - Thu Mar 7 (1:30pm) Seminar: *John Terilla*
