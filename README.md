@@ -42,14 +42,7 @@ Following the Friday discussion there will be a social event at the Munger resid
 
 ### Upcoming Events
 
-+ **Week 3** <br/>
-  - (*Conference: At the Crossroads of Physics and Machine Learning*)
-+ **Week 4**
-  - Tue Feb 19 (1:30pm) Seminar: *Federico Becca*
-  - Wed Feb 20 (10:00am) Special Seminar: *Masoud Mohseni*
-  - Thu Feb 21 (1:30pm) Tutorial: *Estelle Inack*
-  - Fri Feb 22 (3:30pm) Discussion: *TBA*
-+ **Week 5**
-  - Thu Feb 28 (1:30pm) Seminar: *Aleksander Kubica*
 + **Week 6**
+  - Wed Mar 6 (10:00am) Tutorial: *Jing Chen*
   - Thu Mar 7 (1:30pm) Seminar: *John Terilla*
+
