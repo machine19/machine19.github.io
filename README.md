@@ -27,6 +27,7 @@ Following the Friday discussion there will be a social event at the Munger resid
 
 ### Wednesday BlogSpot
 - Michael Albergo: [Overview of Recent Generative Models](machine19.github.io/Blogs/Albergo_GenModels/GenModels.html)
+- Dries Sels: [Tutorial: Reinforcement Learning for Physicists](machine19.github.io/Blogs/TutorialRL.pdf)
 
 ----------------
 
@@ -36,3 +37,12 @@ Following the Friday discussion there will be a social event at the Munger resid
 - [Attendees](http://online.kitp.ucsb.edu/online/machine19/directory.html)
 - [Current week schedule](https://www.kitp.ucsb.edu/talks-schedule#week)
 - [Recorded talks](http://online.kitp.ucsb.edu/online/machine19/)
+
+----------------
+
+### Upcoming Events
+
++ **Week 6**
+  - Wed Mar 6 (10:00am) Tutorial: *Jing Chen*
+  - Thu Mar 7 (1:30pm) Seminar: *John Terilla*
+
