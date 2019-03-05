@@ -28,7 +28,7 @@ Following the Friday discussion there will be a social event at the Munger resid
 ### Wednesday BlogSpot
 - Michael Albergo: [Overview of Recent Generative Models](machine19.github.io/Blogs/Albergo_GenModels/GenModels.html)
 - Dries Sels: [Tutorial: Reinforcement Learning for Physicists](machine19.github.io/Blogs/TutorialRL.pdf)
-
+- Estelle Inack: [Tutorial: VMC and Machine learning](machine19.github.io/Blogs/VMC and machine learning- KITP tutorial notes.html)
 ----------------
 
 
