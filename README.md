@@ -42,7 +42,8 @@ Following the Friday discussion there will be a social event at the Munger resid
 
 ### Upcoming Events
 
-+ **Week 6**
-  - Wed Mar 6 (10:00am) Tutorial: *Jing Chen*
-  - Thu Mar 7 (1:30pm) Seminar: *John Terilla*
++ **Week 7**
+  - Tues Mar 12 (1:30pm) *Phiala Shanahan*, Learning matched action parameters for multi-scale algorithms in lattice QCD
+  - Wed Mar 6 (10:00am) Tutorial: *Andrea Rocchetto*, Tutorial: Overview of classical and quantum learning theory
+  - Thu Mar 7 (1:30pm) Seminar: *Simon Trebst*, Decoding the many-fermion problem with neural networks
 
